@@ -1,19 +1,23 @@
-document.addEventListener("DOMContentLoaded", () =>{
-    
-    const list = document.getElementById("list");
+ const form = document.getElementById("todoForm")
+ const list = document.getElementById("list");
 
     document.addEventListener("submit", (event) => {
-        event.preventDefault()
+       event.preventDefault();
+        
+       const toDoInput = document.getElementById("ToDo");
+       const toDoValue = toDoInput.value.trim();
 
-        const toDo = document.getElementById("ToDo").innerText;
+       if (toDoValue !== "") {
+        // Create a new list item
+        const listItem = document.createElement("li");
+        listItem.textContent = toDoValue;
 
-        const li = document.createElement('li');
+        // Append the new list item to the list
+        list.appendChild(listItem);
 
-       
-        list.appendChild(li);
+        // Clear the input field
+        toDoInput.value = "";
+    }
 
-
-        console.log(toDo)
-
+        
     })
-})
